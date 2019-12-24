@@ -1,0 +1,16 @@
+version: "2.3"
+services:
+    notifier:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        env_file:
+            .env
+        env:
+            DB_CREDS
+
+        volumes:
+            ["./:/notifier"]
+        links:
+                - "db:db"
+

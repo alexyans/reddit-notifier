@@ -1,0 +1,19 @@
+version: "2.3"
+services:
+    notifier:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        env_file:
+            .env
+        volumes:
+            ["./:/notifier"]
+        links:
+                - "db:db"
+    db:
+        image: postgres:latest
+        volumes:
+            - db-data:/var/lib/postgresql/data
+volumes:
+    db-data:
+        driver: local
