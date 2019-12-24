@@ -1,0 +1,18 @@
+Audibene / hear.com
+
+Hello {{name}},
+See yesterday's top voted posts from your favorite channel
+
+------------------
+Reddit Newsletter
+------------------
+
+{{#each userSummaries}}
+    {{#each this}}
+        {{@key}} : {{url_top}}
+        {{#each summary}}
+            {{permalink}}
+            {{ups}} > {{title}}
+        {{/each}}
+    {{/each}}
+{{/each}}
